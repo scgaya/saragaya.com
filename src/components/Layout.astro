@@ -90,9 +90,16 @@ const googleVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding: var(--space-lg) var(--space-lg);
   }
 
-  main {
-    flex: 1;
+  @media screen and (min-width: 730px) {
+    .page {
+      padding: 0 0;
+    }
+
+    main {
+      flex: 1;
+    }
   }
 </style>

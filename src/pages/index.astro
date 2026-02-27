@@ -4,7 +4,7 @@ import Heading from "../components/Heading.astro";
 import Prose from "../components/Prose.astro";
 
 import { Image } from "astro:assets";
-import myImage from "../content/images/IMG_6439.JPG";
+import myImage from "../content/images/IMG_6439.jpg";
 ---
 
 <Layout title="Sara Gaya" description="Sara Gaya Website">
@@ -25,60 +25,62 @@ import myImage from "../content/images/IMG_6439.JPG";
     })}
   />
   <section class="home">
-    <Heading as="h1">Hi, I'm Sara.</Heading>
-    <div class="home-row">
-      <div class="home-section">
-        <Prose>
-          <p>I'm a software developer and future lawyer.</p>
-          <p>
-            I've worked in tech for almost 5 years, and I'm ready to contribute
-            to the industry in a new way.
-          </p>
-          <p>
-            My blog, Thoughts Overflow, is where I share my thoughts on anything
-            that interests me, including books, video games, culture, fashion,
-            etc. It's sparse, but I'm hoping to change that soon. Take a look if
-            you're interested!
-          </p>
+    <Image src={myImage} alt="Me and my husband" class="home-image" />
+    <div>
+      <Heading as="h1">Hi, I'm Sara.</Heading>
+      <Prose>
+        <p>I'm a software developer and future lawyer.</p>
+        <p>
+          I've worked in tech for almost 5 years, and I'm ready to contribute to
+          the industry in a new way.
+        </p>
+        <p>
+          My blog, Thoughts Overflow, is where I share my thoughts on anything
+          that interests me, including books, video games, culture, fashion,
+          etc. It's sparse, but I'm hoping to change that soon. Take a look if
+          you're interested!
+        </p>
 
-          <Heading as="h2">Currently...</Heading>
-          <ul>
-            <li>
-              Playing <a
-                href="https://store.steampowered.com/app/2701440/PARANORMASIGHT_The_Mermaids_Curse/"
-                target="_blank">Paranormasight 2</a
-              > and <a
-                href="https://www.square-enix-games.com/en_GB/games/octopath-traveler-0"
-                target="_blank">Octopath Traveler 0</a
-              >
-            </li>
-            <li>
-              Building this new site on <a
-                href="https://astro.build/"
-                target="_blank">Astro🚀</a
-              >
-            </li>
-            <li>
-              Watching <a href="https://www.imdb.com/title/tt0200276/"
-                >The West Wing</a
-              >
-            </li>
-          </ul>
-          <div class="currently-date">As of 02.27.2026</div>
+        <Heading as="h2">Currently...</Heading>
+        <ul>
+          <li>
+            Playing <a
+              href="https://store.steampowered.com/app/2701440/PARANORMASIGHT_The_Mermaids_Curse/"
+              target="_blank">Paranormasight 2</a
+            > and <a
+              href="https://www.square-enix-games.com/en_GB/games/octopath-traveler-0"
+              target="_blank">Octopath Traveler 0</a
+            >
+          </li>
+          <li>
+            Building this new site on <a
+              href="https://astro.build/"
+              target="_blank">Astro🚀</a
+            >
+          </li>
+          <li>
+            Watching <a href="https://www.imdb.com/title/tt0200276/"
+              >The West Wing</a
+            >
+          </li>
+        </ul>
+        <div class="currently-date">As of 02.27.2026</div>
 
-          <Heading as="h2">Contact & Links</Heading>
-          <ul>
-            <li>
-              Email: <a href="mailto:saracgaya@gmail.com">saracgaya@gmail.com</a
-              >
-            </li>
-            <li>LinkedIn</li>
-            <li>Github</li>
-          </ul>
-        </Prose>
-
-        <Image src={myImage} alt="Me and my husband" class="home-image" />
-      </div>
+        <Heading as="h2">Contact & Links</Heading>
+        <ul>
+          <li>
+            Email: <a href="mailto:saracgaya@gmail.com">saracgaya@gmail.com</a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/s-gaya/" target="_blank"
+              >LinkedIn</a
+            >
+          </li>
+          <li>
+            <a href="https://github.com/scgaya" target="_blank">Github</a>
+          </li>
+        </ul>
+      </Prose>
     </div>
   </section>
 </Layout>
@@ -91,25 +93,40 @@ import myImage from "../content/images/IMG_6439.JPG";
       font-family: var(--font-body);
       font-size: var(--font-size);
     }
-  }
-
-  .home-row {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .home-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
+    margin:;
   }
 
   .home-image {
-    width: 100%;
+    margin: 0 auto;
+    height: auto;
   }
 
   .currently-date {
     font-size: 0.85rem;
     font-style: italic;
+  }
+
+  @media screen and (min-width: 730px) {
+    .home-row {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .home-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+    }
+
+    .home-image {
+      max-width: 300px;
+      float: right;
+      max-width: 250px;
+      padding: 0 0 0 0.4rem;
+    }
+
+    .home-text {
+      float: left;
+    }
   }
 </style>
