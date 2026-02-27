@@ -8,8 +8,8 @@ export async function GET(context: APIContext) {
   );
 
   return rss({
-    title: "UINUX Blog",
-    description: "Writing about systems, design, and building with restraint.",
+    title: "Thoughts Overflow",
+    description: "Sharing the thoughts and ideas stuck in my head. Covering anything and everything.",
     site: context.site!,
     items: posts.map((post) => ({
       title: post.data.title,

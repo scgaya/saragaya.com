@@ -1,13 +1,28 @@
 ---
+import ThemeButton from "./ThemeButton.astro";
+
 const currentPath = Astro.url.pathname;
 ---
 
 <nav class="nav">
-  <a href="/" class="nav-brand">UINUX Blog</a>
+  <a href="/" class="nav-brand">
+    <span class="home-link"> Sara Gaya </span>
+  </a>
   <div class="nav-links">
-    <a href="/search" class:list={[{ active: currentPath === "/search" || currentPath === "/search/" }]}>Search</a>
-    <a href="/about" class:list={[{ active: currentPath === "/about" || currentPath === "/about/" }]}>About</a>
+    <a
+      href="/blog"
+      class:list={[
+        { active: currentPath === "/blog" || currentPath === "/blog/" },
+      ]}>Blog</a
+    >
     <a href="/rss.xml">RSS</a>
+    <a
+      href="/search"
+      class:list={[
+        { active: currentPath === "/search" || currentPath === "/search/" },
+      ]}>Search</a
+    >
+    <ThemeButton />
   </div>
 </nav>
 
@@ -23,7 +38,7 @@ const currentPath = Astro.url.pathname;
 
   .nav-brand {
     font-family: var(--font-heading);
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: 600;
     letter-spacing: -0.01em;
     text-decoration: none;
@@ -49,5 +64,19 @@ const currentPath = Astro.url.pathname;
   .nav-links a:hover,
   .nav-links a.active {
     color: var(--color-text);
+  }
+
+  .home-link {
+    background-image: linear-gradient(
+      45deg,
+      var(--color-gradient-1),
+      var(--color-gradient-2)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    transition:
+      var(--color-gradient-1) 0.2s ease-out,
+      var(--color-gradient-2) 0.2s ease-in-out;
   }
 </style>

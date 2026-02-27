@@ -1,0 +1,64 @@
+---
+import Sun from "../content/icons/Sun.astro";
+import Moon from "../content/icons/Moon.astro";
+---
+
+<button id="theme-toggle">
+  <span id="sun">
+    <Sun />
+  </span>
+  <span id="moon" class="inactive">
+    <Moon />
+  </span>
+</button>
+
+<style>
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .inactive {
+    display: none;
+  }
+</style>
+
+<script is:inline>
+  const changeThemeIcon = (newTheme) => {
+    const newIcon = newTheme === "dark" ? "sun" : "moon"; // get new & current icons based on theme
+    const currentIcon = newIcon === "sun" ? "moon" : "sun";
+    document.getElementById(newIcon).classList.remove("inactive"); // hide old icon and display new icon
+    document.getElementById(currentIcon).classList.add("inactive");
+  };
+
+  const applyTheme = (newTheme) => {
+    const currentTheme = newTheme === "dark" ? "light" : "dark";
+    const rootElement = document.documentElement;
+    rootElement.style.setProperty("color-scheme", newTheme); // set root color-scheme css to new theme
+    rootElement.classList.add(newTheme + "-theme"); // add html class label
+    rootElement.classList.remove(currentTheme + "-theme"); // remove old html class label
+    localStorage.setItem("theme", newTheme); // set theme in local storage
+    changeThemeIcon(newTheme);
+  };
+
+  // set up default theme
+  let storedTheme = localStorage.getItem("theme");
+  if (!storedTheme) {
+    // if no stored theme preference, get system theme preference
+    storedTheme = (
+      window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)")
+    ).matches
+      ? "dark"
+      : "light";
+  }
+  applyTheme(storedTheme);
+
+  // event listener for button toggle
+  const themeButton = document.getElementById("theme-toggle");
+  themeButton.addEventListener("click", () => {
+    const storedTheme =
+      localStorage.getItem("theme") === "dark" ? "light" : "dark";
+    applyTheme(storedTheme);
+  });
+</script>

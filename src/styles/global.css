@@ -4,19 +4,35 @@
    ============================================ */
 
 :root {
-  --font-body: "Newsreader", Georgia, "Times New Roman", serif;
+  color-scheme: light dark;
+  --font-body: "Merriweather", serif;
   --font-heading: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
+  --font-size: 0.92rem;
 
-  --color-text: #1a1a1a;
-  --color-text-secondary: #555;
-  --color-text-tertiary: #888;
-  --color-bg: #fafaf9;
+  /* light mode  */
+  --color-text-light: #1a1a1a;
+  --color-text-secondary-light: #555;
+  --color-text-tertiary-light: #888;
+  --color-bg-light: #fdf9ee;
+  --color-code-bg-light: #f4f4f2;
+
+  /* dark mode  */
+  --color-bg-dark: #1c1c20;
+  --color-code-bg-dark: #1c1c20;
+  --color-text-dark: #d4d4d8;
+  --color-text-secondary-dark: #e4e4e7;
+  --color-text-tertiary-dark: #eee;
+
   --color-surface: #fff;
   --color-border: #e5e5e3;
-  --color-link: #1a1a1a;
-  --color-link-hover: #555;
-  --color-code-bg: #f4f4f2;
+  --color-link: #ff7795;
+  --color-link-hover: #e29cd2;
+  --color-gradient-1: #d161b7;
+  --color-gradient-2: #ff9966;
+  --color-blog-title: #ff7795;
+  --color-blog-title-hover: #ffbcd9;
+
 
   --width-content: 640px;
   --width-page: 720px;
@@ -46,8 +62,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: var(--color-text);
-  background-color: var(--color-bg);
+  color: light-dark(var(--color-text-light), var(--color-text-dark));
+  background-color: light-dark(var(--color-bg-light), var(--color-bg-dark));
   line-height: 1.7;
 }
 
